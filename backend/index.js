@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const mongo = require("./mongo-crud");
 const bodyParser = require("body-parser");
+const cors = require('cors')
+
 
 main().catch((err) => console.log(err));
 
@@ -16,6 +18,19 @@ async function main() {
 bodyParser.urlencoded({ extended: true });
 const app = express();
 app.use(bodyParser.json());
+// const express = require('express');
+// const authRoutes = require('./routes/auth')
+// const app = express();
+const PORT = process.env.PORT || 5000;
+
+require('dotenv').config();
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded());
+
+app.get("/", (req, res) => {
+    res.send("Hello World");
+})
 
 app.get("/api", (req, res) => {
 	res.json({
@@ -168,6 +183,6 @@ app.post("api/tenant/login", async (req, res) => {
 	}
 });
 
-app.listen(5000, () => {
-	console.log("listening on port 5000");
-});
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`);
+})
