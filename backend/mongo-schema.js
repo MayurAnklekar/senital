@@ -3,13 +3,15 @@ var { Schema } = require("mongoose");
 
 const tenantSchema = new Schema({
 	name: String,
-	token: String,
+	email: String,
+	password: String,
 	property: { type: Schema.Types.ObjectID, ref: "Owner" },
 });
 
 const ownerSchema = new Schema({
 	name: String,
-	token: String,
+	email: String,
+	password: String,
 	property: { type: Schema.Types.ObjectID, ref: "Property" },
 });
 

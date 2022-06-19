@@ -108,6 +108,7 @@ app.post("/api/mongo/property/deleteOne", (req, res) => {
 
 app.post("/api/owner/register", async (req, res) => {
 	const data = req.body;
+	// res.json(data);
 	var propertyData = {
 		image: data.imageUrl,
 		location: data.location,
@@ -117,12 +118,54 @@ app.post("/api/owner/register", async (req, res) => {
 	var property = await mongo.findOneProperty({ location: data.location });
 	var ownerData = {
 		name: data.name,
-		token: data.token,
+		email: data.email,
+		password: data.password,
 		property: property._id,
 	};
 	await mongo.insertOneOwner(ownerData);
-	var owner = await mongo.findOneOwner({ name: data.name });
+	var owner = await mongo.findOneOwner({ email: data.email });
 	res.json(owner);
+});
+
+app.post("/api/tenant/register", async (req, res) => {
+	const data = req.body;
+	//the data holds the id of the property the tenant is interested in
+	var property = await mongo.findOneProperty({ _id: data.property });
+	var tenantData = {
+		name: data.name,
+		property: property._id,
+		email: data.email,
+		password: data.password,
+	};
+	await mongo.insertOneTenant(tenantData);
+	var tenant = await mongo.findOneTenant({ name: data.name });
+	res.json(tenant);
+});
+
+app.post("/api/owner/login", async (req, res) => {
+	const data = req.body;
+	var owner = await mongo.findOneOwner({ email: data.email });
+	if (owner.password === data.password) {
+		res.json(owner);
+	} else {
+		res.status(401).json({
+			status: "error",
+			error: "Invalid password",
+		});
+	}
+});
+
+app.post("api/tenant/login", async (req, res) => {
+	const data = req.body;
+	var tenant = await mongo.findOneTenant({ email: data.email });
+	if (tenant.password === data.password) {
+		res.json(tenant);
+	} else {
+		res.json({
+			status: "error",
+			error: "Invalid password",
+		});
+	}
 });
 
 app.listen(5000, () => {
