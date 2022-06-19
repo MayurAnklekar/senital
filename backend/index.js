@@ -35,24 +35,24 @@ app.get("/api/mongo/owner/findAll", (req, res) => {
 	});
 });
 
-app.get("/api/mongo/owner/findOne", (req, res) => {
-	mongo.findOneOwner({ _id: req.query.id }).then((owner) => {
-		res.json(owner);
-	});
-});
+// app.get("/api/mongo/owner/findOne", (req, res) => {
+// 	mongo.findOneOwner({ _id: req.query.id }).then((owner) => {
+// 		res.json(owner);
+// 	});
+// });
 
-app.post("/api/mongo/owner/insert", (req, res) => {
-	mongo.insertOneOwner(req.body).then((owner) => {
-		res.json(owner);
-	});
-	// console.log(req.query);
-});
+// app.post("/api/mongo/owner/insert", (req, res) => {
+// 	mongo.insertOneOwner(req.body).then((owner) => {
+// 		res.json(owner);
+// 	});
+// 	// console.log(req.query);
+// });
 
-app.post("/api/mongo/owner/deleteOne", (req, res) => {
-	mongo.deleteOneOwner({ _id: req.query.id }).then((owner) => {
-		res.json(owner);
-	});
-});
+// app.post("/api/mongo/owner/deleteOne", (req, res) => {
+// 	mongo.deleteOneOwner({ _id: req.query.id }).then((owner) => {
+// 		res.json(owner);
+// 	});
+// });
 
 //tenant Data functions
 
@@ -62,23 +62,23 @@ app.get("/api/mongo/tenant/findAll", (req, res) => {
 	});
 });
 
-app.get("/api/mongo/tenant/findOne", (req, res) => {
-	mongo.findOneTenant({ _id: req.query.id }).then((tenant) => {
-		res.json(tenant);
-	});
-});
+// app.get("/api/mongo/tenant/findOne", (req, res) => {
+// 	mongo.findOneTenant({ _id: req.query.id }).then((tenant) => {
+// 		res.json(tenant);
+// 	});
+// });
 
-app.post("/api/mongo/tenant/insert", (req, res) => {
-	mongo.insertOneTenant(req.body).then((tenant) => {
-		res.json(tenant);
-	});
-});
+// app.post("/api/mongo/tenant/insert", (req, res) => {
+// 	mongo.insertOneTenant(req.body).then((tenant) => {
+// 		res.json(tenant);
+// 	});
+// });
 
-app.post("/api/mongo/tenant/deleteOne", (req, res) => {
-	mongo.deleteOneTenant({ _id: req.query.id }).then((tenant) => {
-		res.json(tenant);
-	});
-});
+// app.post("/api/mongo/tenant/deleteOne", (req, res) => {
+// 	mongo.deleteOneTenant({ _id: req.query.id }).then((tenant) => {
+// 		res.json(tenant);
+// 	});
+// });
 
 //property Data functions
 
@@ -88,23 +88,23 @@ app.get("/api/mongo/property/findAll", (req, res) => {
 	});
 });
 
-app.get("/api/mongo/property/findOne", (req, res) => {
-	mongo.findOneProperty({ _id: req.query.id }).then((property) => {
-		res.json(property);
-	});
-});
+// app.get("/api/mongo/property/findOne", (req, res) => {
+// 	mongo.findOneProperty({ _id: req.query.id }).then((property) => {
+// 		res.json(property);
+// 	});
+// });
 
-app.post("/api/mongo/property/insert", (req, res) => {
-	mongo.insertOneProperty(req.body).then((property) => {
-		res.json(property);
-	});
-});
+// app.post("/api/mongo/property/insert", (req, res) => {
+// 	mongo.insertOneProperty(req.body).then((property) => {
+// 		res.json(property);
+// 	});
+// });
 
-app.post("/api/mongo/property/deleteOne", (req, res) => {
-	mongo.deleteOneProperty({ _id: req.query.id }).then((property) => {
-		res.json(property);
-	});
-});
+// app.post("/api/mongo/property/deleteOne", (req, res) => {
+// 	mongo.deleteOneProperty({ _id: req.query.id }).then((property) => {
+// 		res.json(property);
+// 	});
+// });
 
 app.post("/api/owner/register", async (req, res) => {
 	const data = req.body;
