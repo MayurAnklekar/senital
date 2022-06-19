@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const mongo = require("./mongo-crud");
 const bodyParser = require("body-parser");
 const cors = require('cors')
+const authRoutes = require('./routes/auth')
 
 
 main().catch((err) => console.log(err));
@@ -18,9 +19,6 @@ async function main() {
 bodyParser.urlencoded({ extended: true });
 const app = express();
 app.use(bodyParser.json());
-// const express = require('express');
-// const authRoutes = require('./routes/auth')
-// const app = express();
 const PORT = process.env.PORT || 5000;
 
 require('dotenv').config();
@@ -31,6 +29,8 @@ app.use(express.urlencoded());
 app.get("/", (req, res) => {
     res.send("Hello World");
 })
+
+app.use('/auth', authRoutes)
 
 app.get("/api", (req, res) => {
 	res.json({
