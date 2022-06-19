@@ -1,5 +1,7 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react'
+import Chats from './components/chats/Chats';
+import React from 'react';
 
 function App() {
 
@@ -13,11 +15,13 @@ function App() {
 
   return (
     <div>
-        {
+        {/* {
           (backendData.users) ? backendData.users.map((user)=>{
             return <div>{user}</div>
           }) : (<div>Loading...</div>)
-        }
+          
+        } */}
+        <Chats/>
     </div>
   );
 }
