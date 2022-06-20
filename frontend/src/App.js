@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react'
 import React from 'react';
-import Chats from './components/chats/Chats'
-import ChatApp from './components/firebasechat/ChatApp';
+// import Chats from './components/chats/Chats'
+// import ChatApp from './components/firebasechat/ChatApp';
 import Landing from './components/landing/Landing';
 import './App.css';
-
+import { Route, Routes } from 'react-router-dom'; 
 function App() {
 
   const [backendData, setBackendData] = useState([{}]);
@@ -24,9 +24,15 @@ function App() {
           }) : (<div>Loading...</div>)
           
         } */}
-        <Chats/>
+        {/* <Chats/> */}
         {/* <ChatApp/> */}
-        {/* <Landing/> */}
+        <div className='container'>
+          <Routes>
+            <Route path="/" element={<Landing/>} />
+            <Route path="/login" element={<Landing/>} />
+            <Route path="/disputes" element={<Landing/>} />
+          </Routes>
+        </div>
 
     </div>
   );
