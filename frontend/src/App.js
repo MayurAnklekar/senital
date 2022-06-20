@@ -2,20 +2,20 @@ import axios from 'axios';
 import {useState, useEffect} from 'react'
 import React from 'react';
 // import Chats from './components/chats/Chats'
-// import ChatApp from './components/firebasechat/ChatApp';
+import ChatApp from './components/firebasechat/ChatApp';
 import Landing from './components/landing/Landing';
 import Auth from './components/chats/chatComponents/Auth'
 import './App.css';
 import { Route, Routes } from 'react-router-dom'; 
 function App() {
 
-  const [backendData, setBackendData] = useState([{}]);
+  // const [backendData, setBackendData] = useState([{}]);
 
-  useEffect(()=>{
-    axios.get("/api").then((response)=>{
-      setBackendData(response.data)
-    });
-  }, []);
+  // useEffect(()=>{
+  //   axios.get("/api").then((response)=>{
+  //     setBackendData(response.data)
+  //   });
+  // }, []);
 
   return (
     <div>
@@ -31,7 +31,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Landing/>} />
             <Route path="/login" element={<Auth/>} />
-            <Route path="/disputes" element={<Landing/>} />
+            <Route path="/disputes" element={<ChatApp/>} />
           </Routes>
         </div>
 

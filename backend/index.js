@@ -152,10 +152,10 @@ app.post("/api/tenant/register", async (req, res) => {
 	console.log(data);
 	res.json(data);
 	//the data holds the id of the property the tenant is interested in
-	var property = await mongo.findOneProperty({ _id: data.property });
+	// var property = await mongo.findOneProperty({ _id: data.property });
 	var tenantData = {
 		name: data.name,
-		property: property._id,
+		// property: property._id,
 		email: data.email,
 		password: data.password,
 	};
