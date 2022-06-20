@@ -28,14 +28,15 @@ function App() {
         } */}
         {/* <Chats/> */}
         {/* <ChatApp/> */}
-        {/* <div className='container'>
+        <div className='container'>
           <Routes>
             <Route path="/" element={<Landing/>} />
             <Route path="/login" element={<Auth/>} />
             <Route path="/disputes" element={<ChatApp/>} />
+            <Route path="/chatroom" element={<Video/>}/>
           </Routes>
-        </div> */}
-        <Video/>
+        </div>
+        {/* <Video/> */}
 
     </div>
   );
