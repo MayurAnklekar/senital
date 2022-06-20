@@ -1,5 +1,5 @@
 import React from 'react'
-import Banner from '../Banner'
+import Banner from '../Banner/Banner'
 import Navbar from '../Navbar/Navbar'
 import Listing from '../Listing'
 import './Landing.css'

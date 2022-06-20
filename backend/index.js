@@ -122,28 +122,35 @@ app.get("/api/mongo/property/findAll", (req, res) => {
 // });
 
 app.post("/api/owner/register", async (req, res) => {
+
 	const data = req.body;
+	// console.log(data);
 	// res.json(data);
 	var propertyData = {
-		image: data.imageUrl,
+		image: data.propertyURL,
 		location: data.location,
 		price: data.price,
 	};
+	// console.log(propertyData);
 	await mongo.insertOneProperty(propertyData);
-	var property = await mongo.findOneProperty({ location: data.location });
+	var property = await mongo.findOneProperty({ location: propertyData.location});
+	console.log(property);
 	var ownerData = {
-		name: data.name,
-		email: data.email,
+		name: data.fullName,
+		email: data.username,
 		password: data.password,
 		property: property._id,
 	};
 	await mongo.insertOneOwner(ownerData);
 	var owner = await mongo.findOneOwner({ email: data.email });
+	// console.log(owner);
 	res.json(owner);
 });
 
 app.post("/api/tenant/register", async (req, res) => {
 	const data = req.body;
+	console.log(data);
+	res.json(data);
 	//the data holds the id of the property the tenant is interested in
 	var property = await mongo.findOneProperty({ _id: data.property });
 	var tenantData = {

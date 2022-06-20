@@ -19,6 +19,7 @@ const initialState = {
 const Auth = () => {
     const [form, setForm] = useState(initialState);
     const [isSignup, setIsSignup] = useState(false);
+    const [isLandlord, setIsLandlord] = useState(false);
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -28,6 +29,14 @@ const Auth = () => {
         e.preventDefault();
 
         const { username, password, phoneNumber, avatarURL } = form;
+        console.log(isLandlord);
+        if(isLandlord) {
+            axios.post('http://localhost:5000/api/owner/register', form)
+        }
+        else
+        {
+            axios.post('http://localhost:5000/api/tenant/register', form)
+        }
 
         console.log('====================================');
         console.log(form);
@@ -55,6 +64,9 @@ const Auth = () => {
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
     }
+    const handleLandlord = (e)=>{
+        setIsLandlord(e.target.value==='landlord')
+    }
 
     return (
         <div className="auth__form-container" >
@@ -67,7 +79,7 @@ const Auth = () => {
                         {isSignup && (
                             <div className="auth__form-container_fields-content_input">
                                 <label htmlFor="type">Type</label>
-                                <select id="type" name="type" onChange={handleChange}>
+                                <select id="type" name="type" onChange={handleLandlord}>
                                     <option value="tenent">Tenent</option>
                                     <option value="landlord">Landlord</option>
                                 </select>
@@ -137,6 +149,42 @@ const Auth = () => {
                                     name="confirmPassword"
                                     type="password"
                                     placeholder="Confirm Password"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        )}
+                        {isLandlord&&(
+                            <div className="auth__form-container_fields-content_input">
+                                <label htmlFor="propertyURL">Property Photo URL</label>
+                                <input
+                                    name="propertyURL"
+                                    type="text"
+                                    placeholder="Property Photo URL"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        )}
+                        {isLandlord&&(
+                            <div className="auth__form-container_fields-content_input">
+                                <label htmlFor="location">Location</label>
+                                <input
+                                    name="location"
+                                    type="text"
+                                    placeholder="Location"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        )}
+                        {isLandlord&&(
+                            <div className="auth__form-container_fields-content_input">
+                                <label htmlFor="rentPrice">Rent Price</label>
+                                <input
+                                    name="price"
+                                    type="number"
+                                    placeholder="Rent"
                                     onChange={handleChange}
                                     required
                                 />

@@ -30,7 +30,7 @@ function App() {
         <div className='container'>
           <Routes>
             <Route path="/" element={<Landing/>} />
-            <Route path="/login" element={<Landing/>} />
+            <Route path="/login" element={<Auth/>} />
             <Route path="/disputes" element={<Landing/>} />
           </Routes>
         </div>
