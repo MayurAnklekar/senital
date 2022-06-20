@@ -1,16 +1,9 @@
 import React from "react";
-import './Navbar.css'
-const Navbar=() =>{
-    return (
-        <nav>
-            <ul className="list">
-                <li className="items">Home</li>
-                <li className="items">Services</li>
-                <li className="items">Contact</li>
-            </ul>
-            <button className="btn">BTN</button>
-        </nav>
-    )
+
+const Navbar = ()=>{
+    return <nav className="nav">
+    <a href="/" cl>Covenant</a>
+    </nav>
 }
 
 export default Navbar;

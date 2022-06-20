@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 import { ChannelListContainer, ChannelContainer, Auth} from './chatComponents';
 import React, {useState} from 'react';
 import 'stream-chat-react/dist/css/index.css';
-import './chats.css';
+import './chats.module.css';
 const cookies = new Cookies();
 const authToken = cookies.get('token');
 

@@ -1,8 +1,10 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react'
 import React from 'react';
+import Chats from './components/chats/Chats'
 import ChatApp from './components/firebasechat/ChatApp';
 import Landing from './components/landing/Landing';
+import './App.css';
 
 function App() {
 
@@ -15,15 +17,16 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="app">
         {/* {
           (backendData.users) ? backendData.users.map((user)=>{
             return <div>{user}</div>
           }) : (<div>Loading...</div>)
           
         } */}
+        <Chats/>
         {/* <ChatApp/> */}
-        <Landing/>
+        {/* <Landing/> */}
 
     </div>
   );

@@ -6,7 +6,7 @@ import "firebase/compat/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
-import './ChatApp.css';
+import './ChatApp.module.css';
 
 firebase.initializeApp({
     apiKey: "AIzaSyBzoigwI3vNodtSxy8ZjIlpgKQcb-jLneg",
