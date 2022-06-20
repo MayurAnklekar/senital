@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react'
-import Chats from './components/chats/Chats';
 import React from 'react';
+import ChatApp from './components/firebasechat/ChatApp';
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
           }) : (<div>Loading...</div>)
           
         } */}
-        <Chats/>
+        <ChatApp/>
     </div>
   );
 }
