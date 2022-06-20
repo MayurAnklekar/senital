@@ -1,6 +1,6 @@
-import axios from 'axios';
-import {useState, useEffect} from 'react'
-import React from 'react';
+import axios from "axios";
+import { useState, useEffect } from "react";
+import React from "react";
 // import Chats from './components/chats/Chats'
 import ChatApp from './components/firebasechat/ChatApp';
 import Landing from './components/landing/Landing';
@@ -9,6 +9,7 @@ import Video from './components/video/Video'
 import './App.css';
 import { Route, Routes } from 'react-router-dom'; 
 function App() {
+	const [backendData, setBackendData] = useState([{}]);
 
   // const [backendData, setBackendData] = useState([{}]);
 
@@ -18,24 +19,28 @@ function App() {
   //   });
   // }, []);
 
-  return (
-    <div>
-        {/* {
+
+
+
+
+	return (
+		<div>
+			{/* {
           (backendData.users) ? backendData.users.map((user)=>{
             return <div>{user}</div>
           }) : (<div>Loading...</div>)
           
         } */}
-        {/* <Chats/> */}
-        {/* <ChatApp/> */}
-        {/* <div className='container'>
-          <Routes>
-            <Route path="/" element={<Landing/>} />
-            <Route path="/login" element={<Auth/>} />
-            <Route path="/disputes" element={<ChatApp/>} />
-          </Routes>
-        </div> */}
-        <Video/>
+			{/* <Chats/> */}
+			{/* <ChatApp/> */}
+			<div className="container">
+				<Routes>
+					<Route path="/" element={<Landing />} />
+					<Route path="/login" element={<Auth />} />
+					<Route path="/disputes" element={<Landing />} />
+				</Routes>
+			</div>
+      {/* <Video/> */}
 
     </div>
   );
