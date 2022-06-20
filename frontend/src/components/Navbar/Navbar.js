@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Cookies from 'universal-cookie'
 import "./Navbar.css";
+const cookies = new Cookies();
+
 const Navbar = () => {
+    const id = cookies.get('userId');
 	return (
 		<nav className="nav">
 			<Link to="/" className="site-title">
@@ -10,7 +13,7 @@ const Navbar = () => {
 			</Link>
 			<ul>
 				<li>
-					<Link to="/disputes">Disputes</Link>
+					{id&&<Link to="/disputes">Disputes</Link>}
 				</li>
 				<li>
 					<Link to="/login">Login</Link>

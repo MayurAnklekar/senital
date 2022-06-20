@@ -5,7 +5,7 @@ const tenantSchema = new Schema({
 	name: String,
 	email: String,
 	password: String,
-	property: { type: Schema.Types.ObjectID, ref: "Owner" },
+	// property: { type: Schema.Types.ObjectID, ref: "Owner" },
 });
 
 const ownerSchema = new Schema({

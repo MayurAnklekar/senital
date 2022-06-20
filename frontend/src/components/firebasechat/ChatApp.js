@@ -66,9 +66,10 @@ const ChatRoom = () => {
                 {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
                 <div ref={dummy}></div>
             </main>
-            <form onSubmit={sendMessage}>
+            <form onSubmit={sendMessage} style={{width: '1440px'}}>
                 <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
                 <button type="submit">Send</button>
+                <button type="button">Not Satisfied</button>
             </form>
         </>
     )
@@ -79,7 +80,7 @@ const ChatMessage = (props) => {
     const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
     return (
         <div className={`message ${messageClass}`}>
-            <img src={photoUrl} alt="avatar" />
+            <img src={photoUrl} alt="avatar" className="avatar"/>
             <p>{text}</p>
         </div>
 

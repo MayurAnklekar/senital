@@ -59,6 +59,7 @@ const Auth = () => {
         }
 
         //window.location.reload();
+        window.location = '/';
     }
 
     const switchMode = () => {
