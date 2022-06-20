@@ -32,9 +32,9 @@ const SignIn =()=>{
 }
 
 const SignOut=()=>{
-    return auth.currentUser&&(
+    return (auth.currentUser&&(
         <button onClick={()=>auth.signOut()}>Sign out</button>
-    )
+    ))
 }
 
 const ChatRoom=()=>{
@@ -90,12 +90,14 @@ const ChatApp = () => {
     const [user] = useAuthState(auth);
     return (
         <div>
-            <header>
-
+             
+            <header className="absolute">
+            <SignOut/>
             </header>
             <section>
                 {user?<ChatRoom/>:<SignIn/>}
             </section>
+           
         </div>
     )
 };

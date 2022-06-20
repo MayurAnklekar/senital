@@ -2,6 +2,7 @@ import axios from 'axios';
 import {useState, useEffect} from 'react'
 import React from 'react';
 import ChatApp from './components/firebasechat/ChatApp';
+import Landing from './components/landing/Landing';
 
 function App() {
 
@@ -21,7 +22,9 @@ function App() {
           }) : (<div>Loading...</div>)
           
         } */}
-        <ChatApp/>
+        {/* <ChatApp/> */}
+        <Landing/>
+
     </div>
   );
 }
