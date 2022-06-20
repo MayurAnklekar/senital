@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "@0xait/zoom-meeting-api": "^1.1.1",
+    "express": "^4.18.1",
+    "google-meet-api": "^1.0.0"
   }
 }
