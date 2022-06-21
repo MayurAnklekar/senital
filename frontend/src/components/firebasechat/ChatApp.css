@@ -45,7 +45,7 @@
     background: #6649b8;
   }
   
-  form {
+  .f {
     height: 10vh;
     position: fixed;
     bottom: 0;
@@ -56,13 +56,13 @@
     font-size: 1.5rem;
   }
   
-  form button {
+  .f .btn {
     width: 20%;
     background-color: rgb(56, 56, 143);
   }
   
   
-  input {
+  .msg {
     line-height: 1.5;
     width: 100%;
     font-size: 1.5rem;
@@ -73,7 +73,7 @@
     padding: 0 10px;
   }
   
-  button {
+  .btn {
     background-color: #282c34; 
     border: none;
     color: white;
@@ -85,7 +85,7 @@
     font-size: 1.25rem;
   }
   
-  button:disabled {
+  .btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }

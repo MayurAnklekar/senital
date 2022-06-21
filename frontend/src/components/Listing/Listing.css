@@ -1,0 +1,12 @@
+.card{
+    background-color: #fff999;
+    padding:30px;
+    display: inline-block;
+    margin: 30px;
+    border-radius: 20px;
+}
+
+@media screen and (min-width:600px)
+{
+
+}

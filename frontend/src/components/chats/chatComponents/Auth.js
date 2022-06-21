@@ -30,13 +30,16 @@ const Auth = () => {
 
         const { username, password, phoneNumber, avatarURL } = form;
         console.log(isLandlord);
-        if(isLandlord) {
-            axios.post('http://localhost:5000/api/owner/register', form)
+        if(isSignup){
+            if(isLandlord) {
+                axios.post('http://localhost:5000/api/owner/register', form)
+            }
+            else
+            {
+                axios.post('http://localhost:5000/api/tenant/register', form)
+            }
         }
-        else
-        {
-            axios.post('http://localhost:5000/api/tenant/register', form)
-        }
+        
 
         console.log('====================================');
         console.log(form);

@@ -31,16 +31,17 @@ function App() {
           }) : (<div>Loading...</div>)
           
         } */}
-			{/* <Chats/> */}
-			{/* <ChatApp/> */}
-			<div className="container">
-				<Routes>
-					<Route path="/" element={<Landing />} />
-					<Route path="/login" element={<Auth />} />
-					<Route path="/disputes" element={<Landing />} />
-				</Routes>
-			</div>
-      {/* <Video/> */}
+        {/* <Chats/> */}
+        {/* <ChatApp/> */}
+        <div className='container'>
+          <Routes>
+            <Route path="/" element={<Landing/>} />
+            <Route path="/login" element={<Auth/>} />
+            <Route path="/disputes" element={<ChatApp/>} />
+            <Route path="/chatroom" element={<Video/>}/>
+          </Routes>
+        </div>
+        {/* <Video/> */}
 
     </div>
   );

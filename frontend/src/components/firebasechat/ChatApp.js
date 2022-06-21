@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
@@ -66,10 +67,10 @@ const ChatRoom = () => {
                 {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
                 <div ref={dummy}></div>
             </main>
-            <form onSubmit={sendMessage} style={{width: '1440px'}}>
-                <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
-                <button type="submit">Send</button>
-                <button type="button">Not Satisfied</button>
+            <form className="f" onSubmit={sendMessage} style={{width: '1440px'}}>
+                <input className="msg" value={formValue} onChange={(e) => setFormValue(e.target.value)} />
+                <button className="btn" type="submit">Send</button>
+                <Link to="/chatroom">Go to next Phase</Link>
             </form>
         </>
     )
