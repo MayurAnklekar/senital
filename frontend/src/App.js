@@ -6,6 +6,7 @@ import ChatApp from './components/firebasechat/ChatApp';
 import Landing from './components/landing/Landing';
 import Auth from './components/chats/chatComponents/Auth'
 import Video from './components/video/Video'
+import Invite from './components/video/Invite'
 import './App.css';
 import { Route, Routes } from 'react-router-dom'; 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/login" element={<Auth/>} />
             <Route path="/disputes" element={<ChatApp/>} />
             <Route path="/chatroom" element={<Video/>}/>
+            <Route path="/invite" element={<Invite/>}/>
           </Routes>
         </div>
         {/* <Video/> */}

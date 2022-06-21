@@ -6,7 +6,7 @@ import {
     useConnection,
     usePubSub,
 } from "@videosdk.live/react-sdk";
-import { getToken } from "./api";
+import { getToken, createMeeting } from "./api";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { JoiningScreen } from "./components/JoiningScreen";
@@ -910,6 +910,8 @@ const Video = () => {
     const [micOn, setMicOn] = useState(false);
     const [webcamOn, setWebcamOn] = useState(false);
     const [isMeetingStarted, setMeetingStarted] = useState(false);
+
+    
 
     return isMeetingStarted ? (
         <MeetingProvider
