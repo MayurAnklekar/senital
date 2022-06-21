@@ -1,26 +1,33 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { getToken, createMeeting } from "./api";
-import emailjs from 'emailjs-com'
+import emailjs from '@emailjs/browser';
 
 const Invite = () => {
-    const token = getToken();
-    const _meetingId = createMeeting({ token });
-    const trigger =(e)=>{
+    const form = useRef();
+
+    const trigger = async (e) => {
         e.preventDefault();
-        emailjs.send("service_yz6fchy", "template_rbxxr6i", {
-            from_name: "Covenant Team",
-            to_name: "Moderator",
-            meet_link: { _meetingId },
-            to_email: "mayurschittaragi@gmail.com",
-            reply_to: "Covenant Team",
-            moderator_email: "mayurs0802@gmail.com",
-        });
+        const token = await getToken();
+        const _meetingId = await createMeeting({ token });
+        emailjs.sendForm('service_j7x9t5z',
+            'template_db3cugg',
+            _meetingId,
+            'G3PXa6suXZ1tfcqQT')
+        console.log(_meetingId);
+
+        // emailjs.send("service_j7x9t5z","template_db3cugg",{
+        //     from_name: "Covenant",
+        //     to_name: "Mayur Anklekar",
+        //     meeting_id: {_meetingId},
+        //     other_email: "mayuranklekar.cs20@rvce.edu.in",
+        //     reply_to: "mayuranklekar1010@gmail.com",
+        //     });
 
     }
-    
-  return (
-    <button onClick={trigger}>Invitation sent on your respective mails</button>
-  )
+
+    return (
+        <button onClick={trigger}>Invitation sent on your respective mails</button>
+    )
 }
 
 export default Invite

@@ -70,7 +70,7 @@ const ChatRoom = () => {
             <form className="f" onSubmit={sendMessage} style={{width: '1440px'}}>
                 <input className="msg" value={formValue} onChange={(e) => setFormValue(e.target.value)} />
                 <button className="btn" type="submit">Send</button>
-                <Link to="/invite">Go to next Phase</Link>
+                <Link to="/chatroom">Go to next Phase</Link>
             </form>
         </>
     )
